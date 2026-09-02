@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ComponentRegistry",
+  "type": "object",
+  "required": ["version", "components"],
+  "properties": {
+    "version": { "type": "integer" },
+    "updated": { "type": "string" },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "path",
+          "docs",
+          "galleryId",
+          "public",
+          "kind",
+          "status",
+          "useWhen",
+          "doNotUseWhen",
+          "extendPolicy",
+          "testing"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "path": { "type": "string" },
+          "docs": { "type": "string" },
+          "galleryId": { "type": "string" },
+          "public": { "type": "boolean" },
+          "kind": { "enum": ["primitive", "composed", "custom"] },
+          "status": { "enum": ["draft", "stable", "deprecated"] },
+          "useWhen": { "type": "array", "items": { "type": "string" } },
+          "doNotUseWhen": { "type": "array", "items": { "type": "string" } },
+          "extendPolicy": { "type": "object" },
+          "testing": { "type": "object" },
+          "usedBy": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

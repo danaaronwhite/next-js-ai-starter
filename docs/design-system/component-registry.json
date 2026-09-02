@@ -1,0 +1,241 @@
+{
+  "$schema": "./component-registry.schema.json",
+  "version": 1,
+  "updated": "2026-09-01",
+  "components": [
+    {
+      "id": "button",
+      "name": "Button",
+      "path": "src/components/ui/button.tsx",
+      "docs": "docs/design-system/components/button.md",
+      "galleryId": "button",
+      "public": true,
+      "kind": "primitive",
+      "status": "stable",
+      "useWhen": ["User triggers an action.", "You need consistent interactive affordances."],
+      "doNotUseWhen": ["Static navigation without button semantics — use Link.", "Icon-only without accessible name."],
+      "extendPolicy": {
+        "addPropOrVariantWhen": ["Same visual difference needed in 2+ places."],
+        "doNotModifyWhen": ["One-off layout — use className for layout only."],
+        "createNewComponentWhen": ["Different interaction model (split button, toggle group)."]
+      },
+      "testing": {
+        "unit": ["src/components/ui/button.test.tsx"],
+        "onChange": ["Run button tests.", "Run importer tests.", "Run gallery e2e if visuals change."]
+      },
+      "usedBy": ["gallery", "theme-switcher", "card"]
+    },
+    {
+      "id": "field",
+      "name": "Field",
+      "path": "src/components/field.tsx",
+      "docs": "docs/design-system/components/field.md",
+      "galleryId": "field",
+      "public": true,
+      "kind": "composed",
+      "status": "stable",
+      "useWhen": ["Label + control + description/error composition."],
+      "doNotUseWhen": ["You only need a bare input with no label."],
+      "extendPolicy": {
+        "addPropOrVariantWhen": ["Repeated field layout pattern."],
+        "doNotModifyWhen": ["Single-screen layout tweak."],
+        "createNewComponentWhen": ["Different form field anatomy."]
+      },
+      "testing": {
+        "unit": ["src/components/field.test.tsx"],
+        "onChange": ["Run field tests.", "Run gallery e2e if structure changes."]
+      },
+      "usedBy": ["gallery", "card"]
+    },
+    {
+      "id": "input",
+      "name": "Input",
+      "path": "src/components/ui/input.tsx",
+      "docs": "docs/design-system/components/input.md",
+      "galleryId": "input",
+      "public": true,
+      "kind": "primitive",
+      "status": "stable",
+      "useWhen": ["Single-line text entry."],
+      "doNotUseWhen": ["Multi-line — use Textarea.", "Discrete choice — use Select."],
+      "extendPolicy": {
+        "addPropOrVariantWhen": ["Shared input variant needed twice."],
+        "doNotModifyWhen": ["Wrap with Field instead."],
+        "createNewComponentWhen": ["Different control type."]
+      },
+      "testing": { "unit": [], "onChange": ["Run field composition tests.", "Run gallery e2e."] },
+      "usedBy": ["field", "gallery", "card"]
+    },
+    {
+      "id": "textarea",
+      "name": "Textarea",
+      "path": "src/components/ui/textarea.tsx",
+      "docs": "docs/design-system/components/textarea.md",
+      "galleryId": "textarea",
+      "public": true,
+      "kind": "primitive",
+      "status": "stable",
+      "useWhen": ["Multi-line text entry."],
+      "doNotUseWhen": ["Single-line — use Input."],
+      "extendPolicy": {
+        "addPropOrVariantWhen": ["Shared textarea variant needed twice."],
+        "doNotModifyWhen": ["One-off height — className layout only."],
+        "createNewComponentWhen": ["Rich text editor."]
+      },
+      "testing": { "unit": [], "onChange": ["Run gallery e2e."] },
+      "usedBy": ["gallery"]
+    },
+    {
+      "id": "select",
+      "name": "Select",
+      "path": "src/components/ui/select.tsx",
+      "docs": "docs/design-system/components/select.md",
+      "galleryId": "select",
+      "public": true,
+      "kind": "primitive",
+      "status": "stable",
+      "useWhen": ["Discrete choice from a list."],
+      "doNotUseWhen": ["Boolean — use Checkbox/Switch.", "Searchable combobox (not in v1)."],
+      "extendPolicy": {
+        "addPropOrVariantWhen": ["Shared select styling variant."],
+        "doNotModifyWhen": ["One-off option list on a page."],
+        "createNewComponentWhen": ["Combobox/autocomplete."]
+      },
+      "testing": { "unit": [], "onChange": ["Run gallery e2e (keyboard path)."] },
+      "usedBy": ["gallery", "theme-switcher"]
+    },
+    {
+      "id": "checkbox",
+      "name": "Checkbox",
+      "path": "src/components/ui/checkbox.tsx",
+      "docs": "docs/design-system/components/checkbox.md",
+      "galleryId": "checkbox",
+      "public": true,
+      "kind": "primitive",
+      "status": "stable",
+      "useWhen": ["Boolean form choice with label."],
+      "doNotUseWhen": ["Immediate settings toggle — use Switch."],
+      "extendPolicy": {
+        "addPropOrVariantWhen": ["Repeated checkbox presentation."],
+        "doNotModifyWhen": ["Use Label + Checkbox compose."],
+        "createNewComponentWhen": ["Tri-state or indeterminate group control."]
+      },
+      "testing": { "unit": [], "onChange": ["Run gallery e2e."] },
+      "usedBy": ["gallery"]
+    },
+    {
+      "id": "switch",
+      "name": "Switch",
+      "path": "src/components/ui/switch.tsx",
+      "docs": "docs/design-system/components/switch.md",
+      "galleryId": "switch",
+      "public": true,
+      "kind": "primitive",
+      "status": "stable",
+      "useWhen": ["Immediate on/off settings."],
+      "doNotUseWhen": ["Form boolean in a submit flow — prefer Checkbox."],
+      "extendPolicy": {
+        "addPropOrVariantWhen": ["Shared switch sizing variant."],
+        "doNotModifyWhen": ["Compose with Label."],
+        "createNewComponentWhen": ["Multi-position switch."]
+      },
+      "testing": { "unit": [], "onChange": ["Run gallery e2e."] },
+      "usedBy": ["gallery"]
+    },
+    {
+      "id": "label",
+      "name": "Label",
+      "path": "src/components/ui/label.tsx",
+      "docs": "docs/design-system/components/label.md",
+      "galleryId": "field",
+      "public": true,
+      "kind": "primitive",
+      "status": "stable",
+      "useWhen": ["Accessible caption for a control."],
+      "doNotUseWhen": ["Use FieldLabel inside Field for full anatomy."],
+      "extendPolicy": {
+        "addPropOrVariantWhen": ["Shared label style variant."],
+        "doNotModifyWhen": ["One-off text styling."],
+        "createNewComponentWhen": ["Legend/group label pattern."]
+      },
+      "testing": { "unit": ["src/components/field.test.tsx"], "onChange": ["Run field tests."] },
+      "usedBy": ["field", "gallery", "checkbox", "switch"]
+    },
+    {
+      "id": "card",
+      "name": "Card",
+      "path": "src/components/ui/card.tsx",
+      "docs": "docs/design-system/components/card.md",
+      "galleryId": "card",
+      "public": true,
+      "kind": "composed",
+      "status": "stable",
+      "useWhen": ["Grouped content with header/body/footer."],
+      "doNotUseWhen": ["Full page layout shell."],
+      "extendPolicy": {
+        "addPropOrVariantWhen": ["Shared card variant (elevated, inset)."],
+        "doNotModifyWhen": ["Compose existing Card parts."],
+        "createNewComponentWhen": ["Interactive card as a button/link."]
+      },
+      "testing": { "unit": [], "onChange": ["Run gallery e2e."] },
+      "usedBy": ["gallery"]
+    },
+    {
+      "id": "badge",
+      "name": "Badge",
+      "path": "src/components/ui/badge.tsx",
+      "docs": "docs/design-system/components/badge.md",
+      "galleryId": "badge",
+      "public": true,
+      "kind": "primitive",
+      "status": "stable",
+      "useWhen": ["Short status or category label."],
+      "doNotUseWhen": ["Primary action — use Button."],
+      "extendPolicy": {
+        "addPropOrVariantWhen": ["New semantic badge variant."],
+        "doNotModifyWhen": ["One-off chip on a page."],
+        "createNewComponentWhen": ["Dismissible tag with remove button."]
+      },
+      "testing": { "unit": [], "onChange": ["Run gallery e2e."] },
+      "usedBy": ["gallery"]
+    },
+    {
+      "id": "alert",
+      "name": "Alert",
+      "path": "src/components/ui/alert.tsx",
+      "docs": "docs/design-system/components/alert.md",
+      "galleryId": "alert",
+      "public": true,
+      "kind": "composed",
+      "status": "stable",
+      "useWhen": ["Inline page-level message."],
+      "doNotUseWhen": ["Transient toast — not in v1.", "Modal dialog."],
+      "extendPolicy": {
+        "addPropOrVariantWhen": ["New alert intent variant (token-driven)."],
+        "doNotModifyWhen": ["One-off message layout."],
+        "createNewComponentWhen": ["Banner with actions slot pattern."]
+      },
+      "testing": { "unit": [], "onChange": ["Run gallery e2e."] },
+      "usedBy": ["gallery"]
+    },
+    {
+      "id": "theme-switcher",
+      "name": "ThemeSwitcher",
+      "path": "src/components/theme-switcher.tsx",
+      "docs": "docs/design-system/components/theme-switcher.md",
+      "galleryId": "theme-switcher",
+      "public": true,
+      "kind": "custom",
+      "status": "stable",
+      "useWhen": ["User selects Blue/Grayscale and light/dark/system."],
+      "doNotUseWhen": ["Hardcoding theme in a page."],
+      "extendPolicy": {
+        "addPropOrVariantWhen": ["New color theme id added to theme files."],
+        "doNotModifyWhen": ["Move to header via composition."],
+        "createNewComponentWhen": ["Separate admin-only theme editor."]
+      },
+      "testing": { "unit": [], "onChange": ["Run gallery e2e theme specs.", "Update README theme section."] },
+      "usedBy": ["gallery"]
+    }
+  ]
+}

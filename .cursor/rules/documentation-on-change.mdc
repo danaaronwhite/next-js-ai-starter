@@ -1,0 +1,36 @@
+---
+description: Keep docs, READMEs, and agent files in sync whenever work is done
+alwaysApply: true
+---
+
+# Documentation on change
+
+Whenever you finish work — from direct user input, a runbook chunk, or a bugfix — update documentation in the same change (or immediately after, before calling the task done).
+
+## Required
+
+1. **`docs/`** — Create or update the relevant doc:
+   - Feature work → `docs/feature-planning/` or a new FPD
+   - Design system → `docs/design-system/` (README, component docs, registry)
+   - Testing → `docs/testing/`
+   - Process / policy → `docs/documentation-policy.md`
+   - Runbook-driven work → update the chunk’s **Adjust** notes or later chunks if the plan changed
+
+2. **READMEs** — Update any README affected by the change:
+   - Root `README.md` for install, scripts, structure, or user-facing behavior
+   - Folder READMEs (`docs/`, `runbooks/`, `runbooks/sample/`, etc.) when that folder’s purpose or contents changed
+
+3. **`AGENTS.md`** — Keep accurate: stack, commands, where docs live, runbook workflow, and this documentation rule.
+
+4. **`CLAUDE.md`** — Must exist and point to `AGENTS.md` (do not duplicate agent guidance in two places).
+
+## When to skip
+
+- Typo-only fixes with no behavioral or structural impact
+- Pure refactors that do not change public API, UX, or process
+
+When unsure, update the doc. Stale docs are worse than a short extra paragraph.
+
+## Definition of done
+
+A task is not done until docs match the code and `AGENTS.md` still describes how to work in this repo.
