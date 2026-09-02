@@ -6,6 +6,8 @@ You get a production-shaped Next.js app (design system, gallery, tests, hooks). 
 
 The code is the proof. The process is the product.
 
+**Live preview:** [next-js-ai-starter.vercel.app](https://next-js-ai-starter.vercel.app/) — component gallery, theme switcher, and design tokens in the browser.
+
 ---
 
 ## The methodology
@@ -201,7 +203,7 @@ pnpm dev
 
 **What `corepack enable` does:** [Corepack](https://nodejs.org/api/corepack.html) is bundled with Node.js. Enabling it once per machine lets Node install and run the **exact pnpm version** pinned in this repo’s `package.json` (`pnpm@10.33.0`) when you run `pnpm` here — so lockfiles and installs match for everyone and in CI. You only need to run it once (admin may be required on some systems). If you already use that pnpm version globally, you can skip it, but Corepack is the recommended path.
 
-Open [http://localhost:3000](http://localhost:3000) for the design system gallery.
+Open [http://localhost:3000](http://localhost:3000) for the design system gallery locally, or browse the [live preview](https://next-js-ai-starter.vercel.app/).
 
 ### Playwright (first time only)
 
